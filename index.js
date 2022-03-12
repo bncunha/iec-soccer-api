@@ -17,6 +17,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, '0.0.0.0', async () => {
-  await database.authenticate();
+  await database.sync({ force: true });
   console.log(`Soccer app listening at http://localhost:${port}`);
 });
