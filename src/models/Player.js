@@ -1,29 +1,26 @@
+import { DataTypes } from 'sequelize';
 import sequelize from '../configs/db.config';
-import Team from './Team';
 
 const Player = sequelize.define('Player', {
   id: {
-    type: 'number',
+    type: DataTypes.INTEGER,
     primaryKey: true,
   },
   name: {
-    type: 'string',
+    type: DataTypes.STRING,
     allowNull: false,
   },
   birthDate: {
-    type: 'date',
+    type: DataTypes.DATE,
     allowNull: false,
   },
   country: {
-    type: 'string',
+    type: DataTypes.STRING,
     allowNull: false,
   },
-  team: {
-    type: 'string',
-    allowNull: false,
+  TeamId: {
+    type: DataTypes.INTEGER,
   },
 });
-
-Player.belongsTo(Team);
 
 export default Player;

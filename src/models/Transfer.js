@@ -1,30 +1,27 @@
+import { DataTypes } from 'sequelize';
 import sequelize from '../configs/db.config';
-import Team from './Team';
 
 const Transfer = sequelize.define('Transfer', {
   id: {
-    type: 'number',
+    type: DataTypes.INTEGER,
     primaryKey: true,
   },
   originTeam: {
-    type: 'number',
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   destinyTeam: {
-    type: 'number',
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   date: {
-    type: 'date',
+    type: DataTypes.DATE,
     allowNull: false,
   },
   price: {
-    type: 'number',
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
 });
-
-Transfer.belongsToMany(Team, { as: 'OriginTeam', foreignKey: 'originTeam', through: 'TeamTransfers' });
-Transfer.belongsToMany(Team, { as: 'DestinyTeam', foreignKey: 'destinyTeam', through: 'TeamTransfers' });
 
 export default Transfer;

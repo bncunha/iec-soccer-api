@@ -1,3 +1,4 @@
+import HttpStatus from 'http-status';
 import TeamService from '../services/TeamService';
 
 const get = async ({ res }) => {
@@ -9,7 +10,7 @@ const find = async ({ res }) => {
 };
 
 const create = async ({ res }) => {
-  res.send(await TeamService.create());
+  res.status(HttpStatus.CREATED).send(await TeamService.create());
 };
 
 const update = async ({ res }) => {

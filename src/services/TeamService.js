@@ -1,3 +1,5 @@
+import TeamRepository from '../repositories/TeamRepository';
+
 const get = async () => {
   const a = 1 + 1;
   return {
@@ -5,12 +7,7 @@ const get = async () => {
   };
 };
 
-const create = async () => {
-  const a = 1 + 1;
-  return {
-    teste: `Criado com sucesso: ${a}`,
-  };
-};
+const create = async (team) => TeamRepository.create(team);
 
 const find = async () => {
   const a = 1 + 1;
