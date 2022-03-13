@@ -1,7 +1,4 @@
 import Team from '../models/Team';
+import BaseRepository from './BaseRepository';
 
-const create = (team) => Team.create(team);
-
-export default {
-  create,
-};
+export default BaseRepository(Team);

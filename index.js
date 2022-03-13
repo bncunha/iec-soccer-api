@@ -14,20 +14,21 @@ app.use(
   }),
 );
 
-// app.get('/', (req, res) => {
-//   res.json({ message: 'ok' });
-// });
-
 app.use('/v1', routes);
 
-// routes.initRoutes();
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  console.error('ERRO:', err.message, err.stack);
+  res.status(statusCode).send({ message: err.message });
+  return null;
+});
 
 app.listen(port, '0.0.0.0', async () => {
   try {
     await models.relations();
-    await database.sync({ force: true });
+    await database.sync();
+    console.log(`Soccer app listening at http://localhost:${port}`);
   } catch (err) {
     console.log(err);
   }
-  console.log(`Soccer app listening at http://localhost:${port}`);
 });

@@ -5,6 +5,7 @@ const Transfer = sequelize.define('Transfer', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
+    autoIncrement: true,
   },
   originTeam: {
     type: DataTypes.INTEGER,

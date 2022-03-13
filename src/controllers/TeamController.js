@@ -1,23 +1,43 @@
 import HttpStatus from 'http-status';
 import TeamService from '../services/TeamService';
 
-const get = async ({ res }) => {
-  res.send(await TeamService.create());
+const get = async (req, res, next) => {
+  try {
+    res.send(await TeamService.findAll());
+  } catch (err) {
+    next(err);
+  }
 };
 
-const find = async ({ res }) => {
-  res.send(await TeamService.create());
+const findById = async (req, res, next) => {
+  try {
+    res.send(await TeamService.getById(req.params.id));
+  } catch (err) {
+    next(err);
+  }
 };
 
-const create = async ({ res }) => {
-  res.status(HttpStatus.CREATED).send(await TeamService.create());
+const create = async (req, res, next) => {
+  try {
+    res.status(HttpStatus.CREATED).send(await TeamService.create(req.body));
+  } catch (err) {
+    next(err);
+  }
 };
 
-const update = async ({ res }) => {
-  res.send(await TeamService.create());
+const update = async (req, res, next) => {
+  try {
+    res.send(await TeamService.update(req.params.id, req.body));
+  } catch (err) {
+    next(err);
+  }
 };
-const remove = async ({ res }) => {
-  res.send(await TeamService.create());
+const remove = async (req, res, next) => {
+  try {
+    res.send(await TeamService.destroy(req.params.id));
+  } catch (err) {
+    next(err);
+  }
 };
 
 export default {
@@ -25,5 +45,5 @@ export default {
   create,
   update,
   remove,
-  find,
+  findById,
 };
