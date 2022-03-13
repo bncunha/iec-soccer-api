@@ -16,7 +16,7 @@ app.use(
 
 app.use('/v1', routes);
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   const statusCode = err.statusCode || 500;
   console.error('ERRO:', err.message, err.stack);
   res.status(statusCode).send({ message: err.message });
