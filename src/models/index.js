@@ -1,3 +1,4 @@
+import Event from './Event';
 import Fixture from './Fixture';
 import Player from './Player';
 import Team from './Team';
@@ -19,6 +20,9 @@ const relations = () => {
 
   Tournament.hasMany(Fixture);
   Fixture.belongsTo(Tournament);
+
+  Fixture.hasMany(Event);
+  Event.belongsTo(Fixture);
 };
 
 export default {
