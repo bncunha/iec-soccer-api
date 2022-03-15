@@ -23,6 +23,10 @@ const Fixture = sequelize.define('Fixture', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  TournamentId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
 });
 
 export default Fixture;

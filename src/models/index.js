@@ -16,6 +16,9 @@ const relations = () => {
 
   Tournament.belongsToMany(Team, { through: 'TournamentTeam' });
   Team.belongsToMany(Tournament, { through: 'TournamentTeam' });
+
+  Tournament.hasMany(Fixture);
+  Fixture.belongsTo(Tournament);
 };
 
 export default {
