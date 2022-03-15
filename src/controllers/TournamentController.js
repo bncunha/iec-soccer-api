@@ -40,10 +40,25 @@ const remove = async (req, res, next) => {
   }
 };
 
+const updateEvent = async (req, res, next) => {
+  try {
+    res.send(
+      await TournamentService.updateEvent(
+        req.params.id,
+        req.params.idPartida,
+        req.params.tipoEvento,
+      ),
+    );
+  } catch (err) {
+    next(err);
+  }
+};
+
 export default {
   get,
   create,
   update,
   remove,
   findById,
+  updateEvent,
 };
