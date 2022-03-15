@@ -3,6 +3,8 @@ import bodyParser from 'body-parser';
 import database from './src/configs/db.config';
 import routes from './src/routes';
 import models from './src/models';
+import AuthRoutes from './src/routes/AuthRoutes';
+import authMiddleware from './src/middlewares/auth';
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -14,7 +16,8 @@ app.use(
   }),
 );
 
-app.use('/v1', routes);
+app.use('/v1/auth', AuthRoutes);
+app.use('/v1', authMiddleware, routes);
 
 app.use((err, req, res) => {
   const statusCode = err.statusCode || 500;

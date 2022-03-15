@@ -1,5 +1,5 @@
 import EventRepository from '../repositories/EventRepository';
-import events from './../configs/events.config';
+import events from '../configs/events.config';
 
 const VALID_EVENTS = [
   'inicio',
