@@ -1,10 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import swaggerUi from 'swagger-ui-express';
 import database from './src/configs/db.config';
 import routes from './src/routes';
 import models from './src/models';
 import AuthRoutes from './src/routes/AuthRoutes';
 import authMiddleware from './src/middlewares/auth';
+import swaggerDocument from './swagger.json';
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -14,6 +16,12 @@ app.use(
   bodyParser.urlencoded({
     extended: true,
   }),
+);
+
+app.use(
+  '/swagger',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument),
 );
 
 app.use('/v1/auth', AuthRoutes);

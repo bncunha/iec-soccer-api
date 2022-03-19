@@ -1,0 +1,664 @@
+{
+	"info": {
+		"_postman_id": "32b6d782-796e-4f0d-ba72-575d033511e7",
+		"name": "API e Web Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Times",
+			"item": [
+				{
+					"name": "Criar Time",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Flamengo\",\r\n    \"locality\": \"Brazil\",\r\n    \"tournament\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/times",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"times"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Times",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/times",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"times"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Time By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/times/1",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"times",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Time",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Atualizado\",\r\n    \"tournament\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/times/1",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"times",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Time",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/times/1",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"times",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jogadores",
+			"item": [
+				{
+					"name": "Criar Jogador",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Neymar\",\r\n    \"birthDate\": \"1985-10-03\",\r\n    \"country\": \"Brazil\",\r\n    \"TeamId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/jogadores",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Jogadores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/jogadores",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Jogadores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/jogadores/1",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"jogadores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Jogador",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Neymar Atualizado\",\r\n    \"birthDate\": \"1985-10-03\",\r\n    \"country\": \"Brazil\",\r\n    \"TeamId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/jogadores/1",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"jogadores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Jogador",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/jogadores/1",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"jogadores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2NDczMTUwMDgsImV4cCI6MTY0NzMyMjIwOH0.fTYvp4yS3IxD72qqBA7ZKRgJSkrXuuv4HTSDU6rJZO8",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Transferências",
+			"item": [
+				{
+					"name": "Criar Transferência",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"originTeam\": 1,\r\n    \"destinyTeam\": 3,\r\n    \"date\": \"2020-10-01\",\r\n    \"price\": 40000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/transferencias",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"transferencias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transferencias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/transferencias",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"transferencias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transferencia By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/transferencias/3",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"transferencias",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Transferencia",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"originTeam\": 1,\r\n    \"destinyTeam\": 3,\r\n    \"date\": \"2020-10-01\",\r\n    \"price\": 10000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/transferencias/3",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"transferencias",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Transferencia",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/transferencias/3",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"transferencias",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2NDc3MjIzNjUsImV4cCI6MTY0NzcyOTU2NX0.QefAAdv1c8DAbYhEJeJsKEKjLqUGQ0Uvpi4ZzUPU6pM",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Torneios",
+			"item": [
+				{
+					"name": "Criar Torneio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Torneio Capixaba\",\r\n    \"date\": \"2022-10-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/torneios",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"torneios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Torneios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/torneios",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"torneios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Torneio By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/torneios/1",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"torneios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Torneio",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Torneio Atualizado\",\r\n    \"date\": \"2022-10-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/torneios/1",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"torneios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Torneio",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/torneios/1",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"torneios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar evento da partida de algum torneio",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Partidas",
+			"item": [
+				{
+					"name": "Criar Partida",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"city\": \"São Paulo\",\r\n\"date\": \"2022-09-10\",\r\n\"homeTeam\": 1,\r\n\"awayTeam\": 4,\r\n\"TournamentId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/partidas",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"partidas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Partidas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/partidas",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"partidas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Partida By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/partidas/5",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"partidas",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Partida",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"city\": \"Atualizar\",\r\n\"date\": \"2022-09-10\",\r\n\"homeTeam\": 1,\r\n\"awayTeam\": 2,\r\n\"TournamentId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/partidas/2",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"partidas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Partida",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/partidas/2",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"partidas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/auth/login",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

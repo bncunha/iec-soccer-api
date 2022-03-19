@@ -1,0 +1,793 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Soccer API",
+    "description": "PUC Minas",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "Times"
+    },
+    {
+      "name": "Jogadores"
+    },
+    {
+      "name": "Transferências"
+    },
+    {
+      "name": "Torneios"
+    },
+    {
+      "name": "Partidas"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Logar na API",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2NDc3MjU2NTIsImV4cCI6MTY0NzczMjg1Mn0.9-Rn6o73BkSzM67Py5Ryrb-menDHq17T81AD7aEL6eM"              
+            }
+          }
+        }
+
+      }
+    },
+
+
+    "/times/{timeId}": {
+      "get": {
+        "tags": ["Times"],
+        "summary": "Recuperar único time pelo id",
+        "parameters": [
+          {
+            "name": "timeId",
+            "in": "path",
+            "description": "ID do time",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Time"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Times"],
+        "summary": "Deletar time",
+        "parameters": [
+          {
+            "name": "timeId",
+            "in": "path",
+            "description": "ID do time",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/times": {
+      "get": {
+        "tags": ["Times"],
+        "summary": "Recuperar todos os times",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Time"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Times"],
+        "summary": "Criar um novo time",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Time"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Times"],
+        "summary": "Atualizar time",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Time"
+            }
+          }
+        }
+      }
+    },
+
+    "/jogadores/{jogadorId}": {
+      "get": {
+        "tags": ["Jogadores"],
+        "summary": "Recuperar único jogador pelo id",
+        "parameters": [
+          {
+            "name": "jogadorId",
+            "in": "path",
+            "description": "ID do jogador",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Jogador"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Jogadores"],
+        "summary": "Deletar jogador",
+        "parameters": [
+          {
+            "name": "jogadorId",
+            "in": "path",
+            "description": "ID do jogador",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/jogadores": {
+      "get": {
+        "tags": ["Jogadores"],
+        "summary": "Recuperar todos os jogador",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Jogador"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Jogadores"],
+        "summary": "Criar um novo jogador",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Jogador"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Jogador"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Jogadores"],
+        "summary": "Atualizar jogador",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Jogador"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Jogador"
+            }
+          }
+        }
+      }
+    },
+
+    "/transferencias/{id}": {
+      "get": {
+        "tags": ["Transferências"],
+        "summary": "Recuperar transferencia pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da transferencia",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Transferencia"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Transferências"],
+        "summary": "Deletar transferencia",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da Transferencia",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/transferencias": {
+      "get": {
+        "tags": ["Transferências"],
+        "summary": "Recuperar todas as transferencias",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Transferencia"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Transferências"],
+        "summary": "Criar nova transferencia",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Transferencia"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Transferencia"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Transferências"],
+        "summary": "Atualizar transferencia",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Transferencia"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Transferencia"
+            }
+          }
+        }
+      }
+    },
+
+    "/torneios/{id}": {
+      "get": {
+        "tags": ["Torneios"],
+        "summary": "Recuperar torneio pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do torneio",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Torneio"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Torneios"],
+        "summary": "Deletar torneio",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do Torneio",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/torneios": {
+      "get": {
+        "tags": ["Torneios"],
+        "summary": "Recuperar todos os torneios",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Torneio"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Torneios"],
+        "summary": "Criar novo torneio",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Torneio"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Torneio"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Torneios"],
+        "summary": "Atualizar torneio",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Torneio"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Torneio"
+            }
+          }
+        }
+      }
+    },
+    "/torneios/{idTorneio}/partidas/{idPartida}/eventos/{tipoEvento}": {
+      "post": {
+        "tags": ["Torneios"],
+        "summary": "Atualizar evento da partida",
+        "parameters": [
+          {
+            "name": "idTorneio",
+            "in": "path",
+            "description": "ID do torneio",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "idPartida",
+            "in": "path",
+            "description": "ID da partida",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "tipoEvento",
+            "in": "path",
+            "description": "Tipo do evento da partida",
+            "required": true,
+            "items": {
+              "enum": [
+                "inicio",
+                "gol",
+                "intervalo",
+                "acrescimo",
+                "substituicao",
+                "advertencia",
+                "fim"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Evento"
+            }
+          }
+        }
+      }
+    },
+
+    "/partidas/{id}": {
+      "get": {
+        "tags": ["Partidas"],
+        "summary": "Recuperar partida pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da partida",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Partida"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Partidas"],
+        "summary": "Deletar partida",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da Partida",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/partidas": {
+      "get": {
+        "tags": ["Partidas"],
+        "summary": "Recuperar todas as partidas",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Partida"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Partidas"],
+        "summary": "Criar nova partida",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateUpdatePartida"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Partida"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Partidas"],
+        "summary": "Atualizar partidas",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateUpdatePartida"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Partida"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Torneio": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      }
+    },
+    "Jogador": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "birthDate": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "TeamId": {
+          "type": "number"
+        }
+      }
+    },
+    "Time": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "locality": {
+          "type": "string"
+        },
+        "tournament": {
+          "type": "number"
+        }
+      }
+    },
+    "Transferencia": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "originTeam": {
+          "type": "number"
+        },
+        "destinyTeam": {
+          "type": "number"
+        },
+        "date": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        }
+      }
+    },
+    "Evento": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "FixtureId": {
+          "type": "number"
+        }
+      }
+    },
+    "Partida": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "city": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "homeTeam": {
+          "type": "number"
+        },
+        "awayTeam": {
+          "type": "number"
+        },
+        "TournamentId": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "AwayTeam": {
+          "$ref": "#/definitions/Time"
+        },
+        "HomeTeam": {
+          "$ref": "#/definitions/Time"
+        }
+      }
+    },
+    "CreateUpdatePartida": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "city": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "homeTeam": {
+          "type": "number"
+        },
+        "awayTeam": {
+          "type": "number"
+        },
+        "TournamentId": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "AwayTeam": {
+          "type": "number"
+        },
+        "HomeTeam": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
