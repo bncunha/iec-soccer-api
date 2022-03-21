@@ -72,6 +72,28 @@
 
 
     "/times/{timeId}": {
+      "put": {
+        "tags": ["Times"],
+        "summary": "Atualizar time",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Time"
+            }
+          }
+        }
+      },
       "get": {
         "tags": ["Times"],
         "summary": "Recuperar único time pelo id",
@@ -149,17 +171,20 @@
             }
           }
         }
-      },
+      }
+    },
+
+    "/jogadores/{jogadorId}": {
       "put": {
-        "tags": ["Times"],
-        "summary": "Atualizar time",
+        "tags": ["Jogadores"],
+        "summary": "Atualizar jogador",
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Time"
+              "$ref": "#/definitions/Jogador"
             }
           }
         ],
@@ -167,14 +192,11 @@
           "200": {
             "description": "Sucesso",
             "schema": {
-              "$ref": "#/definitions/Time"
+              "$ref": "#/definitions/Jogador"
             }
           }
         }
-      }
-    },
-
-    "/jogadores/{jogadorId}": {
+      },
       "get": {
         "tags": ["Jogadores"],
         "summary": "Recuperar único jogador pelo id",
@@ -252,17 +274,20 @@
             }
           }
         }
-      },
+      }
+    },
+
+    "/transferencias/{id}": {
       "put": {
-        "tags": ["Jogadores"],
-        "summary": "Atualizar jogador",
+        "tags": ["Transferências"],
+        "summary": "Atualizar transferencia",
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Jogador"
+              "$ref": "#/definitions/Transferencia"
             }
           }
         ],
@@ -270,14 +295,11 @@
           "200": {
             "description": "Sucesso",
             "schema": {
-              "$ref": "#/definitions/Jogador"
+              "$ref": "#/definitions/Transferencia"
             }
           }
         }
-      }
-    },
-
-    "/transferencias/{id}": {
+      },
       "get": {
         "tags": ["Transferências"],
         "summary": "Recuperar transferencia pelo ID",
@@ -355,17 +377,20 @@
             }
           }
         }
-      },
+      }
+    },
+
+    "/torneios/{id}": {
       "put": {
-        "tags": ["Transferências"],
-        "summary": "Atualizar transferencia",
+        "tags": ["Torneios"],
+        "summary": "Atualizar torneio",
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Transferencia"
+              "$ref": "#/definitions/Torneio"
             }
           }
         ],
@@ -373,14 +398,11 @@
           "200": {
             "description": "Sucesso",
             "schema": {
-              "$ref": "#/definitions/Transferencia"
+              "$ref": "#/definitions/Torneio"
             }
           }
         }
-      }
-    },
-
-    "/torneios/{id}": {
+      },
       "get": {
         "tags": ["Torneios"],
         "summary": "Recuperar torneio pelo ID",
@@ -458,28 +480,6 @@
             }
           }
         }
-      },
-      "put": {
-        "tags": ["Torneios"],
-        "summary": "Atualizar torneio",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Torneio"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Sucesso",
-            "schema": {
-              "$ref": "#/definitions/Torneio"
-            }
-          }
-        }
       }
     },
     "/torneios/{idTorneio}/partidas/{idPartida}/eventos/{tipoEvento}": {
@@ -531,6 +531,28 @@
     },
 
     "/partidas/{id}": {
+      "put": {
+        "tags": ["Partidas"],
+        "summary": "Atualizar partidas",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateUpdatePartida"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "$ref": "#/definitions/Partida"
+            }
+          }
+        }
+      },
       "get": {
         "tags": ["Partidas"],
         "summary": "Recuperar partida pelo ID",
@@ -590,28 +612,6 @@
       "post": {
         "tags": ["Partidas"],
         "summary": "Criar nova partida",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/CreateUpdatePartida"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Sucesso",
-            "schema": {
-              "$ref": "#/definitions/Partida"
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": ["Partidas"],
-        "summary": "Atualizar partidas",
         "parameters": [
           {
             "in": "body",
